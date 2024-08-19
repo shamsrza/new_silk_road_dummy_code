@@ -1,0 +1,133 @@
+@mixin transition($ms: 300ms) {
+    transition: all $ms ease;
+    -webkit-transition: all $ms ease;
+  }
+  
+  @mixin border-radius($px) {
+    border-radius: $px;
+  }
+  
+  @mixin centercontent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  @mixin mmccondensed {
+    font-family: "MMC Display Condensed", sans-serif;
+  }
+  @mixin mmcdisplay {
+    font-family: "MMC Display", MMC Display no;
+  }
+  @mixin notosans {
+    font-family: 'Noto Sans', sans-serif;
+  }
+  @mixin tiempos {
+    font-family: Tiempos, serif;
+  }
+  @mixin inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  @mixin center($centercontent) {
+    @if $centercontent {
+      @include centercontent;
+    } @else {
+      position: relative;
+      top: unset;
+      left: unset;
+      transform: unset;
+    }
+  }
+  
+  @mixin displayflex {
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  @mixin flexcenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin flex($displayflex) {
+    @if $displayflex {
+      @include displayflex;
+    } @else {
+      display: block;
+    }
+  }
+  
+  $black: #000000;
+  $white: #ffffff;
+  $green: #c8dc00;
+  $greenhover: #E8FF00;
+  $secondary1grey: #e6e6e6;
+  $secondary2grey: #999999;
+  $secondary3grey: #4D4D4D;
+  $gray: #565656;
+  $temp1: #FFBE00;
+  $temp2: #FF8C00;
+  $temp3: #FF2B3D;
+  $yellow: #ffbe00;
+  $red: #ff2b3d;
+  $orange: #ff8c00;
+  
+  // Breakpoints
+  $sxm: 325px;
+  $ipx: 377px;
+  $sm: 576px;
+  $md: 768px;
+  $lg: 992px;
+  $ipad: 1024px;
+  $lrg: 1150px;
+  $xl: 1200px;
+  $xxl: 1400px;
+  $xxxl: 1600px;
+  
+  @mixin breakpoint($point) {
+    @if $point == xxxl {
+      @media (max-width: $xxxl) {
+        @content;
+      }
+    } @else if $point == xxl {
+      @media (max-width: $xxl) {
+        @content;
+      }
+    } @else if $point == xl {
+      @media (max-width: $xl) {
+        @content;
+      }
+    } @else if $point == lrg {
+      @media (max-width: $lrg) {
+        @content;
+      }
+    } @else if $point == ipad {
+      @media (max-width: $ipad) {
+        @content;
+      }
+    } @else if $point == lg {
+      @media (max-width: $lg) {
+        @content;
+      }
+    } @else if $point == md {
+      @media (max-width: $md) {
+        @content;
+      }
+    } @else if $point == sm {
+      @media (max-width: $sm) {
+        @content;
+      }
+    } @else if $point == ipx {
+      @media (max-width: $ipx) {
+        @content;
+      }
+    } @else if $point == sxm {
+      @media (max-width: $sxm) {
+        @content;
+      }
+    }
+  }
+  
